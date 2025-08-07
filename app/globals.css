@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .whatsapp-bg {
+    background-color: #111b21;
+  }
+  
+  .whatsapp-sidebar {
+    background-color: #202c33;
+  }
+  
+  .whatsapp-chat-bg {
+    background-color: #0b141a;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  .message-bubble-sent {
+    background-color: #005c4b;
+  }
+  
+  .message-bubble-received {
+    background-color: #202c33;
+  }
+  
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #374151 transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #374151;
+    border-radius: 3px;
+  }
+
+  /* Hide v0 watermark and any similar branding */
+  [data-v0-watermark],
+  [class*="v0-watermark"],
+  [class*="built-with"],
+  [id*="v0-watermark"],
+  [id*="built-with"] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    width: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide any fixed positioned watermarks */
+  div[style*="position: fixed"][style*="bottom"][style*="right"],
+  div[style*="position: fixed"][style*="bottom"][style*="left"] {
+    display: none !important;
+  }
+
+  /* Hide watermarks that might contain "v0" or "built with" text */
+  *:has-text("Built with v0"),
+  *:has-text("built with v0"),
+  *:has-text("v0.dev"),
+  *:has-text("vercel") {
+    display: none !important;
+  }
+
+  /* Additional watermark hiding rules */
+  .watermark,
+  .branding,
+  .attribution,
+  .powered-by {
+    display: none !important;
+  }
+
+  /* Hide any elements with v0 related content */
+  [aria-label*="v0"],
+  [title*="v0"],
+  [alt*="v0"] {
+    display: none !important;
+  }
+}
+
+/* Global watermark removal */
+body::after,
+body::before,
+html::after,
+html::before {
+  display: none !important;
+}
+
+/* Remove any injected watermark styles */
+style[data-v0],
+style[data-watermark] {
+  display: none !important;
+}
